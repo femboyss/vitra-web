@@ -1,8 +1,35 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795532913,
+  "generated": 1795533227,
   "packages": [
+    {
+      "depends": [
+        "bash",
+        "pacman",
+        "curl",
+        "coreutils",
+        "findutils",
+        "gawk",
+        "grep",
+        "sed",
+        "gzip",
+        "procps-ng"
+      ],
+      "license": [
+        "Apache-2.0"
+      ],
+      "pkgname": "cmaal",
+      "pkgver": "2.1.1-1",
+      "pkgdesc": "A multitool for Arch Linux: one command for pacman, the AUR and flatpak, plus SSH, rollbacks and system care",
+      "url": "https://github.com/femboyss/cmaal",
+      "builddate": "1795533225",
+      "packager": "Unknown Packager",
+      "size": "274259",
+      "file": "cmaal-2.1.1-1-any.pkg.tar.zst",
+      "filesize": 97739,
+      "signed": false
+    },
     {
       "depends": [
         "bash",
