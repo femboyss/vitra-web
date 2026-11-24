@@ -1,7 +1,7 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795535550,
+  "generated": 1795538507,
   "packages": [
     {
       "depends": [],
@@ -746,6 +746,22 @@
       "size": "381180",
       "file": "ttf-space-mono-2-2-any.pkg.tar.zst",
       "filesize": 152734,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "Apache-2.0 AND CC-BY-4.0"
+      ],
+      "pkgname": "ttf-twemoji",
+      "pkgver": "17.0.2-3",
+      "pkgdesc": "Truetype builds of Twemoji; Twitter Color Emoji for everyone.",
+      "url": "https://github.com/jdecked/twemoji",
+      "builddate": "1795538502",
+      "packager": "Unknown Packager",
+      "size": "4136211",
+      "file": "ttf-twemoji-17.0.2-3-any.pkg.tar.zst",
+      "filesize": 3328239,
       "signed": false
     },
     {
