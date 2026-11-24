@@ -2,178 +2,296 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vitra Packages</title>
 <meta name="description" content="Package browser for the Vitra Linux package repository">
 <style>
-  :root {
-    --bg: #0b1213;
-    --glass: rgba(255,255,255,0.06);
-    --glass-2: rgba(255,255,255,0.10);
-    --border: rgba(255,255,255,0.12);
-    --text: #e6f1f0;
-    --muted: #8aa5a3;
-    --accent: #39c5bb;
-    --accent-2: #e12885;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; min-height: 100%; }
   body {
-    font-family: "Google Sans Flex", "Inter", system-ui, sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(1200px 600px at 10% -10%, rgba(57,197,187,0.25), transparent 60%),
-      radial-gradient(900px 500px at 110% 10%, rgba(225,40,133,0.18), transparent 60%),
-      var(--bg);
-    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background: #f6f9fc;
+    color: #222;
+    font: normal 100% sans-serif;
+    font-size: 0.82em;
   }
-  .wrap { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
-  header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
-  .logo {
-    width: 44px; height: 44px; border-radius: 14px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    display: grid; place-items: center; font-weight: 800; font-size: 22px; color: #0b1213;
+  a { color: #07b; text-decoration: none; }
+  a:hover { text-decoration: underline; color: #666; }
+  a:visited { color: #666; }
+
+  #head {
+    background: #333;
+    border-bottom: 5px solid #39c5bb;
+    height: 50px;
+    padding: 0 15px;
   }
-  h1 { font-size: 28px; margin: 0; letter-spacing: -0.5px; }
-  .sub { color: var(--muted); margin: 4px 0 24px; }
-  .card {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    padding: 18px 20px;
-    margin-bottom: 16px;
+  #logo {
+    float: left;
+    color: #fff;
+    font: bold 26px/50px "Trebuchet MS", sans-serif;
+    letter-spacing: 1px;
   }
-  .card h2 { font-size: 15px; margin: 0 0 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  #logo span { color: #39c5bb; }
+  #logo a, #logo a:visited { color: #fff; text-decoration: none; }
+  #nav { float: right; margin: 0; padding: 0; list-style: none; }
+  #nav li { float: left; }
+  #nav a, #nav a:visited {
+    display: block; color: #999; font: bold 14px/50px sans-serif; padding: 0 12px;
+  }
+  #nav a:hover { color: #fff; text-decoration: none; }
+  #nav a.active { color: #fff; }
+
+  #content { margin: 0 auto; padding: 1em 1.5em; max-width: 1100px; }
+  .box {
+    background: #ecf2f5;
+    border: 1px solid #bcd;
+    margin-bottom: 1.5em;
+    padding: 0.5em 1em 1em;
+  }
+  h2 {
+    font-size: 1.45em; color: #333; margin: 0.4em 0 0.7em;
+    border-bottom: 1px solid #888; padding-bottom: 0.2em;
+  }
+  h3 { font-size: 1.1em; color: #333; margin: 1em 0 0.4em; }
+  p { margin: 0.5em 0; line-height: 1.4em; }
+  pre, code { font-family: monospace; font-size: 1.1em; }
   pre {
-    margin: 0; padding: 14px 16px; border-radius: 12px;
-    background: rgba(0,0,0,0.35); border: 1px solid var(--border);
-    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13.5px;
-    overflow-x: auto; position: relative;
+    background: #fff; border: 1px solid #bcd; padding: 0.6em 0.8em; margin: 0.5em 0;
+    overflow-x: auto;
   }
-  .copy {
-    position: absolute; top: 8px; right: 8px;
-    background: var(--glass-2); color: var(--text); border: 1px solid var(--border);
-    border-radius: 8px; padding: 4px 10px; font-size: 12px; cursor: pointer;
+
+  form.search fieldset { border: 0; padding: 0; margin: 0; }
+  form.search label { font-weight: bold; margin-right: 0.3em; }
+  form.search input[type=text] { width: 22em; padding: 2px 3px; }
+  form.search select { padding: 1px; }
+  form.search .item { display: inline-block; margin: 0.3em 1.2em 0.3em 0; }
+
+  .results-info { margin: 0.6em 0; }
+  table.results { width: 100%; border-collapse: collapse; background: #fff; }
+  table.results th {
+    background: #ddd; border: 1px solid #bbb; padding: 0.3em 0.5em;
+    text-align: left; font-weight: bold; cursor: pointer; white-space: nowrap;
   }
-  .copy:hover { border-color: var(--accent); }
-  .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
-  input[type=search] {
-    flex: 1; min-width: 200px;
-    background: var(--glass); border: 1px solid var(--border); color: var(--text);
-    border-radius: 999px; padding: 11px 18px; font-size: 15px; outline: none;
+  table.results th:hover { background: #ccc; }
+  table.results td { border: 1px solid #ddd; padding: 0.3em 0.5em; vertical-align: top; }
+  table.results tr.odd td { background: #f9f9f9; }
+  .nowrap { white-space: nowrap; }
+
+  table.info { border-collapse: collapse; }
+  table.info th {
+    text-align: right; padding: 0.25em 0.8em 0.25em 0; vertical-align: top;
+    white-space: nowrap; font-weight: bold; color: #333;
   }
-  input[type=search]:focus { border-color: var(--accent); }
-  .count { color: var(--muted); font-size: 14px; }
-  .pkg { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; }
-  .pkg + .pkg { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; }
-  .name { font-weight: 700; font-size: 17px; }
-  .ver { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 13px; margin-left: 8px; }
-  .desc { color: var(--muted); grid-column: 1 / -1; font-size: 14.5px; }
-  .meta { grid-column: 1 / -1; display: flex; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
-  .tag { background: var(--glass-2); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; color: var(--muted); }
-  .tag.ok { color: var(--accent); border-color: rgba(57,197,187,0.4); }
-  a.dl {
-    align-self: start; text-decoration: none; color: #0b1213; background: var(--accent);
-    border-radius: 10px; padding: 7px 14px; font-weight: 700; font-size: 13px;
+  table.info td { padding: 0.25em 0; }
+  ul.deps { margin: 0; padding-left: 1.3em; }
+  .flag-yes { color: #080; font-weight: bold; }
+  .flag-no { color: #c00; }
+
+  #footer {
+    clear: both; margin: 2em auto 1em; text-align: center; color: #888; font-size: 0.95em;
   }
-  a.dl:hover { filter: brightness(1.1); }
-  details { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
-  summary { cursor: pointer; }
-  .empty { color: var(--muted); text-align: center; padding: 30px 0; }
-  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 36px; }
-  footer a, .sub a { color: var(--accent); }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logo">V</div>
-    <h1>Vitra Packages</h1>
-  </header>
-  <p class="sub">Package browser for the <b>[vitra]</b> repository. Source: <a href="https://github.com/femboyss/vitra-repo">femboyss/vitra-repo</a></p>
 
-  <div class="card">
-    <h2>Add the repo</h2>
-    <p class="sub" style="margin:0 0 10px">Append to <code>/etc/pacman.conf</code>, then run <code>sudo pacman -Sy</code>:</p>
-    <pre id="conf">[vitra]
-SigLevel = Optional TrustAll
-Server = https://github.com/femboyss/vitra-repo/releases/download/$arch<button class="copy" data-target="conf">copy</button></pre>
-  </div>
+<div id="head">
+  <div id="logo"><a href="#/">Vitra<span>.</span></a></div>
+  <ul id="nav">
+    <li><a href="#/" id="nav-home">Packages</a></li>
+    <li><a href="#/setup" id="nav-setup">Setup</a></li>
+    <li><a href="https://github.com/femboyss/vitra-repo">Source</a></li>
+  </ul>
+</div>
 
-  <div class="card">
-    <h2>Packages</h2>
-    <div class="toolbar">
-      <input type="search" id="q" placeholder="Search packages..." autocomplete="off">
-      <span class="count" id="count"></span>
-    </div>
-    <div id="list"><div class="empty">Loading...</div></div>
-  </div>
+<div id="content">
+  <div id="view"></div>
+</div>
 
-  <footer>
-    <div id="updated"></div>
-    <div>(c) 2026 34 &amp; Claude &middot; GPL-3.0</div>
-  </footer>
+<div id="footer">
+  <p id="updated"></p>
+  <p>Vitra package repository &middot; (c) 2026 34 &amp; Claude &middot; GPL-3.0</p>
 </div>
 
 <script>
-const RELEASE = "https://github.com/femboyss/vitra-repo/releases/download/x86_64/";
-let PKGS = [];
+var RELEASE = "https://github.com/femboyss/vitra-repo/releases/download/x86_64/";
+var DATA = { packages: [] };
+var sortKey = "pkgname", sortDir = 1;
 
 function esc(s) {
-  return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
 }
 function size(n) {
   n = Number(n) || 0;
   if (n < 1024) return n + " B";
-  if (n < 1048576) return (n / 1024).toFixed(1) + " KiB";
-  return (n / 1048576).toFixed(1) + " MiB";
+  if (n < 1048576) return (n / 1024).toFixed(2) + " KiB";
+  return (n / 1048576).toFixed(2) + " MiB";
 }
-function date(ts) {
+function ymd(ts) {
   ts = Number(ts);
   if (!ts) return "";
-  return new Date(ts * 1000).toLocaleDateString("en-GB");
+  var d = new Date(ts * 1000);
+  function p(x) { return x < 10 ? "0" + x : x; }
+  return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+}
+function depName(d) { return String(d).split(/[<>=:]/)[0]; }
+function find(name) {
+  for (var i = 0; i < DATA.packages.length; i++) if (DATA.packages[i].pkgname === name) return DATA.packages[i];
+  return null;
+}
+function params() {
+  var q = location.hash.split("?")[1] || "", o = {};
+  q.split("&").forEach(function (kv) {
+    if (!kv) return;
+    var a = kv.split("=");
+    o[decodeURIComponent(a[0])] = decodeURIComponent((a[1] || "").replace(/\+/g, " "));
+  });
+  return o;
+}
+function setNav(id) {
+  ["nav-home", "nav-setup"].forEach(function (n) {
+    document.getElementById(n).className = n === id ? "active" : "";
+  });
+}
+
+function viewSearch() {
+  setNav("nav-home");
+  var p = params(), k = (p.K || "").toLowerCase(), by = p.SeB || "nd";
+  var list = DATA.packages.filter(function (x) {
+    if (!k) return true;
+    var name = (x.pkgname || "").toLowerCase(), desc = (x.pkgdesc || "").toLowerCase();
+    if (by === "n") return name.indexOf(k) >= 0;
+    if (by === "x") return name === k;
+    return name.indexOf(k) >= 0 || desc.indexOf(k) >= 0;
+  });
+  list.sort(function (a, b) {
+    var x = a[sortKey], y = b[sortKey];
+    if (sortKey === "builddate" || sortKey === "filesize") { x = Number(x) || 0; y = Number(y) || 0; }
+    else { x = String(x || "").toLowerCase(); y = String(y || "").toLowerCase(); }
+    return x < y ? -sortDir : x > y ? sortDir : 0;
+  });
+
+  var h = '<div class="box"><h2>Package Search</h2>' +
+    '<form class="search" onsubmit="return doSearch(this)"><fieldset>' +
+    '<span class="item"><label for="SeB">Search By</label><select id="SeB" name="SeB">' +
+    '<option value="nd"' + (by === "nd" ? " selected" : "") + '>Name, Description</option>' +
+    '<option value="n"' + (by === "n" ? " selected" : "") + '>Name Only</option>' +
+    '<option value="x"' + (by === "x" ? " selected" : "") + '>Exact Name</option>' +
+    '</select></span>' +
+    '<span class="item"><label for="K">Keywords</label><input type="text" id="K" name="K" value="' + esc(p.K || "") + '"></span>' +
+    '<span class="item"><input type="submit" value="Go"></span>' +
+    '</fieldset></form></div>';
+
+  h += '<div class="box"><p class="results-info">' + list.length + ' package' + (list.length === 1 ? "" : "s") + ' found.</p>';
+  if (!DATA.packages.length) {
+    h += '<p>No packages have been published yet.</p>';
+  } else if (list.length) {
+    function th(key, label) {
+      var arrow = sortKey === key ? (sortDir > 0 ? " &#9650;" : " &#9660;") : "";
+      return '<th onclick="sortBy(\'' + key + '\')">' + label + arrow + '</th>';
+    }
+    h += '<table class="results"><thead><tr>' +
+      th("pkgname", "Name") + th("pkgver", "Version") + th("pkgdesc", "Description") +
+      th("filesize", "Size") + th("builddate", "Last Updated") +
+      '</tr></thead><tbody>';
+    list.forEach(function (x, i) {
+      h += '<tr class="' + (i % 2 ? "even" : "odd") + '">' +
+        '<td class="nowrap"><a href="#/packages/' + encodeURIComponent(x.pkgname) + '">' + esc(x.pkgname) + '</a></td>' +
+        '<td class="nowrap">' + esc(x.pkgver) + '</td>' +
+        '<td>' + esc(x.pkgdesc) + '</td>' +
+        '<td class="nowrap">' + size(x.filesize) + '</td>' +
+        '<td class="nowrap">' + esc(ymd(x.builddate)) + '</td></tr>';
+    });
+    h += '</tbody></table>';
+  }
+  h += '</div>';
+  return h;
+}
+
+function viewPackage(name) {
+  setNav("nav-home");
+  var x = find(name);
+  if (!x) return '<div class="box"><h2>Package not found</h2><p>There is no package called <b>' + esc(name) + '</b> in [vitra]. <a href="#/">Back to the search</a>.</p></div>';
+
+  var deps = (x.depends || []).map(function (d) {
+    var n = depName(d), local = find(n);
+    return '<li>' + (local ? '<a href="#/packages/' + encodeURIComponent(n) + '">' + esc(d) + '</a>' : esc(d) + ' <span style="color:#888">(arch)</span>') + '</li>';
+  }).join("");
+  var reqBy = DATA.packages.filter(function (o) {
+    return (o.depends || []).some(function (d) { return depName(d) === x.pkgname; });
+  }).map(function (o) {
+    return '<li><a href="#/packages/' + encodeURIComponent(o.pkgname) + '">' + esc(o.pkgname) + '</a></li>';
+  }).join("");
+
+  return '<div class="box"><h2>Package Details: ' + esc(x.pkgname) + ' ' + esc(x.pkgver) + '</h2>' +
+    '<table class="info">' +
+    '<tr><th>Repository:</th><td>vitra</td></tr>' +
+    '<tr><th>Architecture:</th><td>' + esc(DATA.arch || "x86_64") + '</td></tr>' +
+    '<tr><th>Description:</th><td>' + esc(x.pkgdesc) + '</td></tr>' +
+    (x.url ? '<tr><th>Upstream URL:</th><td><a href="' + esc(x.url) + '">' + esc(x.url) + '</a></td></tr>' : '') +
+    '<tr><th>License(s):</th><td>' + esc((x.license || []).join(", ")) + '</td></tr>' +
+    (x.packager ? '<tr><th>Packager:</th><td>' + esc(x.packager) + '</td></tr>' : '') +
+    '<tr><th>Package Size:</th><td>' + size(x.filesize) + '</td></tr>' +
+    '<tr><th>Installed Size:</th><td>' + size(x.size) + '</td></tr>' +
+    '<tr><th>Build Date:</th><td>' + esc(ymd(x.builddate)) + '</td></tr>' +
+    '<tr><th>Signed:</th><td>' + (x.signed ? '<span class="flag-yes">Yes</span>' : '<span class="flag-no">No</span>') + '</td></tr>' +
+    '<tr><th>Download:</th><td><a href="' + RELEASE + encodeURIComponent(x.file) + '">' + esc(x.file) + '</a></td></tr>' +
+    '<tr><th>Source Files:</th><td><a href="https://github.com/femboyss/vitra-repo/tree/main/pkgs/' + encodeURIComponent(x.pkgname) + '">pkgs/' + esc(x.pkgname) + '</a></td></tr>' +
+    '</table>' +
+    '<h3>Dependencies (' + (x.depends || []).length + ')</h3>' + (deps ? '<ul class="deps">' + deps + '</ul>' : '<p>None</p>') +
+    '<h3>Required by (' + (reqBy ? reqBy.split("<li>").length - 1 : 0) + ')</h3>' + (reqBy ? '<ul class="deps">' + reqBy + '</ul>' : '<p>None</p>') +
+    '<h3>Install</h3><pre>sudo pacman -S ' + esc(x.pkgname) + '</pre>' +
+    '</div>';
+}
+
+function viewSetup() {
+  setNav("nav-setup");
+  return '<div class="box"><h2>Setup</h2>' +
+    '<p>To use the Vitra repository on Arch Linux (or any Arch-based system), append the following to <code>/etc/pacman.conf</code>:</p>' +
+    '<pre>[vitra]\nSigLevel = Optional TrustAll\nServer = https://github.com/femboyss/vitra-repo/releases/download/$arch</pre>' +
+    '<p>Then refresh the package databases:</p>' +
+    '<pre>sudo pacman -Sy</pre>' +
+    '<p>List all packages in the repository:</p>' +
+    '<pre>pacman -Sl vitra</pre>' +
+    '<p><b>Note:</b> <code>SigLevel = Optional TrustAll</code> is only used during the testing phase. ' +
+    'Once packages are signed, a key import step will be added here.</p>' +
+    '<h3>Source</h3>' +
+    '<p>PKGBUILDs and build scripts: <a href="https://github.com/femboyss/vitra-repo">github.com/femboyss/vitra-repo</a></p>' +
+    '</div>';
 }
 
 function render() {
-  const q = document.getElementById("q").value.trim().toLowerCase();
-  const list = document.getElementById("list");
-  const shown = PKGS.filter(p => !q || (p.pkgname || "").toLowerCase().includes(q) || (p.pkgdesc || "").toLowerCase().includes(q));
-  document.getElementById("count").textContent = shown.length + " / " + PKGS.length;
-  if (!PKGS.length) { list.innerHTML = '<div class="empty">No packages published yet.</div>'; return; }
-  if (!shown.length) { list.innerHTML = '<div class="empty">Nothing found.</div>'; return; }
-  list.innerHTML = shown.map(p => `
-    <div class="pkg">
-      <div><span class="name">${esc(p.pkgname)}</span><span class="ver">${esc(p.pkgver)}</span></div>
-      <a class="dl" href="${RELEASE + encodeURIComponent(p.file)}">download</a>
-      <div class="desc">${esc(p.pkgdesc)}</div>
-      <div class="meta">
-        <span class="tag">${size(p.filesize)}</span>
-        ${p.builddate ? `<span class="tag">built ${esc(date(p.builddate))}</span>` : ""}
-        ${(p.license || []).map(l => `<span class="tag">${esc(l)}</span>`).join("")}
-        <span class="tag ${p.signed ? "ok" : ""}">${p.signed ? "signed" : "unsigned"}</span>
-      </div>
-      ${p.depends && p.depends.length ? `<details><summary>depends (${p.depends.length})</summary>${p.depends.map(esc).join(", ")}</details>` : ""}
-      <details><summary>install</summary><code>sudo pacman -S ${esc(p.pkgname)}</code> or <code>vtx -S ${esc(p.pkgname)}</code></details>
-    </div>`).join("");
+  var path = location.hash.replace(/^#/, "").split("?")[0] || "/";
+  var v = document.getElementById("view");
+  var m = path.match(/^\/packages\/(.+)$/);
+  if (m) v.innerHTML = viewPackage(decodeURIComponent(m[1]));
+  else if (path === "/setup") v.innerHTML = viewSetup();
+  else v.innerHTML = viewSearch();
+  window.scrollTo(0, 0);
 }
 
+function doSearch(f) {
+  var k = f.K.value.trim(), by = f.SeB.value;
+  location.hash = "#/?K=" + encodeURIComponent(k) + "&SeB=" + by;
+  return false;
+}
+function sortBy(key) {
+  if (sortKey === key) sortDir = -sortDir; else { sortKey = key; sortDir = 1; }
+  render();
+}
+
+window.addEventListener("hashchange", render);
+
 fetch("packages.json", { cache: "no-store" })
-  .then(r => r.json())
-  .then(d => {
-    PKGS = (d.packages || []).sort((a, b) => (a.pkgname || "").localeCompare(b.pkgname || ""));
-    if (d.generated) document.getElementById("updated").textContent = "Last update: " + new Date(d.generated * 1000).toLocaleString("en-GB");
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    DATA = d;
+    DATA.packages = d.packages || [];
+    if (d.generated) document.getElementById("updated").textContent = "Last database update: " + ymd(d.generated);
     render();
   })
-  .catch(() => { document.getElementById("list").innerHTML = '<div class="empty">Could not load packages.json</div>'; });
-
-document.getElementById("q").addEventListener("input", render);
-document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
-  const el = document.getElementById(b.dataset.target);
-  const text = el.childNodes[0].textContent;
-  navigator.clipboard.writeText(text).then(() => { b.textContent = "copied"; setTimeout(() => b.textContent = "copy", 1200); });
-}));
+  .catch(function () {
+    document.getElementById("view").innerHTML = '<div class="box"><h2>Error</h2><p>Could not load packages.json.</p></div>';
+  });
 </script>
 </body>
 </html>
