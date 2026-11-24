@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vitra Packages</title>
+<meta name="description" content="Package browser for the Vitra Linux package repository">
+<style>
+  :root {
+    --bg: #0b1213;
+    --glass: rgba(255,255,255,0.06);
+    --glass-2: rgba(255,255,255,0.10);
+    --border: rgba(255,255,255,0.12);
+    --text: #e6f1f0;
+    --muted: #8aa5a3;
+    --accent: #39c5bb;
+    --accent-2: #e12885;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    font-family: "Google Sans Flex", "Inter", system-ui, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(57,197,187,0.25), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(225,40,133,0.18), transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+  .logo {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: grid; place-items: center; font-weight: 800; font-size: 22px; color: #0b1213;
+  }
+  h1 { font-size: 28px; margin: 0; letter-spacing: -0.5px; }
+  .sub { color: var(--muted); margin: 4px 0 24px; }
+  .card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 15px; margin: 0 0 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  pre {
+    margin: 0; padding: 14px 16px; border-radius: 12px;
+    background: rgba(0,0,0,0.35); border: 1px solid var(--border);
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13.5px;
+    overflow-x: auto; position: relative;
+  }
+  .copy {
+    position: absolute; top: 8px; right: 8px;
+    background: var(--glass-2); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 4px 10px; font-size: 12px; cursor: pointer;
+  }
+  .copy:hover { border-color: var(--accent); }
+  .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+  input[type=search] {
+    flex: 1; min-width: 200px;
+    background: var(--glass); border: 1px solid var(--border); color: var(--text);
+    border-radius: 999px; padding: 11px 18px; font-size: 15px; outline: none;
+  }
+  input[type=search]:focus { border-color: var(--accent); }
+  .count { color: var(--muted); font-size: 14px; }
+  .pkg { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; }
+  .pkg + .pkg { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; }
+  .name { font-weight: 700; font-size: 17px; }
+  .ver { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 13px; margin-left: 8px; }
+  .desc { color: var(--muted); grid-column: 1 / -1; font-size: 14.5px; }
+  .meta { grid-column: 1 / -1; display: flex; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+  .tag { background: var(--glass-2); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; color: var(--muted); }
+  .tag.ok { color: var(--accent); border-color: rgba(57,197,187,0.4); }
+  a.dl {
+    align-self: start; text-decoration: none; color: #0b1213; background: var(--accent);
+    border-radius: 10px; padding: 7px 14px; font-weight: 700; font-size: 13px;
+  }
+  a.dl:hover { filter: brightness(1.1); }
+  details { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
+  summary { cursor: pointer; }
+  .empty { color: var(--muted); text-align: center; padding: 30px 0; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 36px; }
+  footer a, .sub a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">V</div>
+    <h1>Vitra Packages</h1>
+  </header>
+  <p class="sub">Package browser for the <b>[vitra]</b> repository. Source: <a href="https://github.com/femboyss/vitra-repo">femboyss/vitra-repo</a></p>
+
+  <div class="card">
+    <h2>Add the repo</h2>
+    <p class="sub" style="margin:0 0 10px">Append to <code>/etc/pacman.conf</code>, then run <code>sudo pacman -Sy</code>:</p>
+    <pre id="conf">[vitra]
+SigLevel = Optional TrustAll
+Server = https://github.com/femboyss/vitra-repo/releases/download/$arch<button class="copy" data-target="conf">copy</button></pre>
+  </div>
+
+  <div class="card">
+    <h2>Packages</h2>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search packages..." autocomplete="off">
+      <span class="count" id="count"></span>
+    </div>
+    <div id="list"><div class="empty">Loading...</div></div>
+  </div>
+
+  <footer>
+    <div id="updated"></div>
+    <div>(c) 2026 34 &amp; Claude &middot; GPL-3.0</div>
+  </footer>
+</div>
+
+<script>
+const RELEASE = "https://github.com/femboyss/vitra-repo/releases/download/x86_64/";
+let PKGS = [];
+
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+function size(n) {
+  n = Number(n) || 0;
+  if (n < 1024) return n + " B";
+  if (n < 1048576) return (n / 1024).toFixed(1) + " KiB";
+  return (n / 1048576).toFixed(1) + " MiB";
+}
+function date(ts) {
+  ts = Number(ts);
+  if (!ts) return "";
+  return new Date(ts * 1000).toLocaleDateString("en-GB");
+}
+
+function render() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const list = document.getElementById("list");
+  const shown = PKGS.filter(p => !q || (p.pkgname || "").toLowerCase().includes(q) || (p.pkgdesc || "").toLowerCase().includes(q));
+  document.getElementById("count").textContent = shown.length + " / " + PKGS.length;
+  if (!PKGS.length) { list.innerHTML = '<div class="empty">No packages published yet.</div>'; return; }
+  if (!shown.length) { list.innerHTML = '<div class="empty">Nothing found.</div>'; return; }
+  list.innerHTML = shown.map(p => `
+    <div class="pkg">
+      <div><span class="name">${esc(p.pkgname)}</span><span class="ver">${esc(p.pkgver)}</span></div>
+      <a class="dl" href="${RELEASE + encodeURIComponent(p.file)}">download</a>
+      <div class="desc">${esc(p.pkgdesc)}</div>
+      <div class="meta">
+        <span class="tag">${size(p.filesize)}</span>
+        ${p.builddate ? `<span class="tag">built ${esc(date(p.builddate))}</span>` : ""}
+        ${(p.license || []).map(l => `<span class="tag">${esc(l)}</span>`).join("")}
+        <span class="tag ${p.signed ? "ok" : ""}">${p.signed ? "signed" : "unsigned"}</span>
+      </div>
+      ${p.depends && p.depends.length ? `<details><summary>depends (${p.depends.length})</summary>${p.depends.map(esc).join(", ")}</details>` : ""}
+      <details><summary>install</summary><code>sudo pacman -S ${esc(p.pkgname)}</code> or <code>vtx -S ${esc(p.pkgname)}</code></details>
+    </div>`).join("");
+}
+
+fetch("packages.json", { cache: "no-store" })
+  .then(r => r.json())
+  .then(d => {
+    PKGS = (d.packages || []).sort((a, b) => (a.pkgname || "").localeCompare(b.pkgname || ""));
+    if (d.generated) document.getElementById("updated").textContent = "Last update: " + new Date(d.generated * 1000).toLocaleString("en-GB");
+    render();
+  })
+  .catch(() => { document.getElementById("list").innerHTML = '<div class="empty">Could not load packages.json</div>'; });
+
+document.getElementById("q").addEventListener("input", render);
+document.querySelectorAll(".copy").forEach(b => b.addEventListener("click", () => {
+  const el = document.getElementById(b.dataset.target);
+  const text = el.childNodes[0].textContent;
+  navigator.clipboard.writeText(text).then(() => { b.textContent = "copied"; setTimeout(() => b.textContent = "copy", 1200); });
+}));
+</script>
+</body>
+</html>
