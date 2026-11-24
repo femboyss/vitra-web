@@ -1,7 +1,7 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795534631,
+  "generated": 1795535550,
   "packages": [
     {
       "depends": [],
@@ -762,6 +762,30 @@
       "size": "205964",
       "file": "ttf-uncut-sans-2-2-any.pkg.tar.zst",
       "filesize": 115950,
+      "signed": false
+    },
+    {
+      "depends": [
+        "python",
+        "pyside6",
+        "archinstall",
+        "arch-install-scripts",
+        "util-linux",
+        "pciutils",
+        "polkit"
+      ],
+      "license": [
+        "GPL-3.0-or-later"
+      ],
+      "pkgname": "vitrainstall",
+      "pkgver": "0.1.0-1",
+      "pkgdesc": "The graphical Vitra installer (Qt/QML interface, archinstall underneath)",
+      "url": "https://github.com/femboyss/vitrainstall",
+      "builddate": "1795535546",
+      "packager": "Unknown Packager",
+      "size": "115095",
+      "file": "vitrainstall-0.1.0-1-any.pkg.tar.zst",
+      "filesize": 52046,
       "signed": false
     },
     {
