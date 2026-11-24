@@ -1,8 +1,90 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795533227,
+  "generated": 1795534631,
   "packages": [
+    {
+      "depends": [],
+      "license": [
+        "CC0-1.0"
+      ],
+      "pkgname": "38c3-style-assets",
+      "pkgver": "2-2",
+      "pkgdesc": "Assets (graphics, logos, ...) except fonts for the style of the 38th chaos communication congress.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "26857322",
+      "file": "38c3-style-assets-2-2-any.pkg.tar.zst",
+      "filesize": 6288709,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "CC0-1.0"
+      ],
+      "pkgname": "38c3-styleguide",
+      "pkgver": "2-2",
+      "pkgdesc": "Styleguide for the 38th Chaos Communication Congress.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "12683616",
+      "file": "38c3-styleguide-2-2-any.pkg.tar.zst",
+      "filesize": 12356914,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "CC0-1.0"
+      ],
+      "pkgname": "38c3-styles-commoninfo",
+      "pkgver": "2-2",
+      "pkgdesc": "General information for the styles for the 38th Chaos Communication Congress.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "22923",
+      "file": "38c3-styles-commoninfo-2-2-any.pkg.tar.zst",
+      "filesize": 21100,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "LGPL-2.1-or-later"
+      ],
+      "pkgname": "adw-gtk-theme-git",
+      "pkgver": "6.5.r4.g47922ed-1",
+      "pkgdesc": "The theme from libadwaita ported to GTK-3",
+      "url": "https://github.com/lassekongo83/adw-gtk3",
+      "builddate": "1795534170",
+      "packager": "Unknown Packager",
+      "size": "2215268",
+      "file": "adw-gtk-theme-git-6.5.r4.g47922ed-1-any.pkg.tar.zst",
+      "filesize": 152850,
+      "signed": false
+    },
+    {
+      "depends": [
+        "breeze"
+      ],
+      "license": [
+        "LGPL-2.1-only"
+      ],
+      "pkgname": "breeze-plus",
+      "pkgver": "6.28.0-1",
+      "pkgdesc": "Breeze Styled extra icon theme",
+      "url": "https://github.com/mjkim0727/breeze-plus",
+      "builddate": "1795534175",
+      "packager": "Unknown Packager",
+      "size": "2726262",
+      "file": "breeze-plus-6.28.0-1-any.pkg.tar.zst",
+      "filesize": 466077,
+      "signed": false
+    },
     {
       "depends": [
         "bash",
@@ -32,6 +114,658 @@
     },
     {
       "depends": [
+        "kdecoration",
+        "qt6-declarative",
+        "kcoreaddons",
+        "kcmutils",
+        "kcolorscheme",
+        "kconfig",
+        "kguiaddons",
+        "kiconthemes",
+        "kwindowsystem",
+        "frameworkintegration",
+        "libplasma"
+      ],
+      "license": [
+        "GPL-2.0-or-later"
+      ],
+      "pkgname": "darkly-bin",
+      "pkgver": "0.5.46-1",
+      "pkgdesc": "Fork of Lightly (A modern style for Qt applications)",
+      "url": "https://github.com/Bali10050/darkly",
+      "builddate": "1795534181",
+      "packager": "Unknown Packager",
+      "size": "1761078",
+      "file": "darkly-bin-0.5.46-1-x86_64.pkg.tar.zst",
+      "filesize": 512213,
+      "signed": false
+    },
+    {
+      "depends": [
+        "glassy-wallpapers",
+        "illogical-impulse-audio",
+        "illogical-impulse-backlight",
+        "illogical-impulse-basic",
+        "illogical-impulse-bibata-modern-classic-bin",
+        "illogical-impulse-fonts-themes",
+        "illogical-impulse-hyprland",
+        "illogical-impulse-kde",
+        "illogical-impulse-microtex-git",
+        "illogical-impulse-portal",
+        "illogical-impulse-python",
+        "illogical-impulse-quickshell-git",
+        "illogical-impulse-screencapture",
+        "illogical-impulse-toolkit",
+        "illogical-impulse-widgets",
+        "git",
+        "jq",
+        "python",
+        "libnotify",
+        "xdg-utils",
+        "plasma-integration",
+        "qt6ct",
+        "papirus-icon-theme",
+        "inter-font",
+        "ttf-jetbrains-mono-nerd",
+        "bluez",
+        "bluez-utils",
+        "grim",
+        "darkly-bin"
+      ],
+      "license": [
+        "GPL-3.0-or-later"
+      ],
+      "pkgname": "glassy-shell",
+      "pkgver": "2.0.r56.gd2c29b1-1",
+      "pkgdesc": "Glassy desktop shell for Vitra: Hyprland + Quickshell (illogical-impulse) in the glassy look",
+      "url": "https://github.com/femboyss/claudes-glassy",
+      "builddate": "1795534619",
+      "packager": "Unknown Packager",
+      "size": "3823026",
+      "file": "glassy-shell-2.0.r56.gd2c29b1-1-any.pkg.tar.zst",
+      "filesize": 938348,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "GPL-3.0-or-later"
+      ],
+      "pkgname": "glassy-wallpapers",
+      "pkgver": "2.0.r56.gd2c29b1-1",
+      "pkgdesc": "Wallpapers of the Vitra glassy desktop",
+      "url": "https://github.com/femboyss/claudes-glassy",
+      "builddate": "1795534619",
+      "packager": "Unknown Packager",
+      "size": "9860165",
+      "file": "glassy-wallpapers-2.0.r56.gd2c29b1-1-any.pkg.tar.zst",
+      "filesize": 9543401,
+      "signed": false
+    },
+    {
+      "depends": [
+        "cava",
+        "pavucontrol-qt",
+        "wireplumber",
+        "pipewire-pulse",
+        "libdbusmenu-gtk3",
+        "playerctl"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-audio",
+      "pkgver": "1.0-3",
+      "pkgdesc": "Illogical Impulse Audio Dependencies",
+      "url": "",
+      "builddate": "1795533940",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-audio-1.0-3-any.pkg.tar.zst",
+      "filesize": 14992,
+      "signed": false
+    },
+    {
+      "depends": [
+        "geoclue",
+        "brightnessctl",
+        "ddcutil"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-backlight",
+      "pkgver": "1.0-2",
+      "pkgdesc": "Illogical Impulse Backlight Dependencies",
+      "url": "",
+      "builddate": "1795533942",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-backlight-1.0-2-any.pkg.tar.zst",
+      "filesize": 14958,
+      "signed": false
+    },
+    {
+      "depends": [
+        "bc",
+        "coreutils",
+        "cliphist",
+        "cmake",
+        "curl",
+        "wget",
+        "ripgrep",
+        "jq",
+        "xdg-user-dirs",
+        "rsync",
+        "go-yq"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-basic",
+      "pkgver": "1.0-3",
+      "pkgdesc": "Illogical Impulse Basic Dependencies",
+      "url": "",
+      "builddate": "1795533944",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-basic-1.0-3-any.pkg.tar.zst",
+      "filesize": 15014,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "GPL-3.0-or-later"
+      ],
+      "pkgname": "illogical-impulse-bibata-modern-classic-bin",
+      "pkgver": "2.0.6-2",
+      "pkgdesc": "Material Based Cursor Theme, installed for illogical-impulse dotfiles",
+      "url": "https://github.com/ful1e5/Bibata_Cursor",
+      "builddate": "1795533946",
+      "packager": "Unknown Packager",
+      "size": "28106129",
+      "file": "illogical-impulse-bibata-modern-classic-bin-2.0.6-2-any.pkg.tar.zst",
+      "filesize": 2487940,
+      "signed": false
+    },
+    {
+      "depends": [
+        "adw-gtk-theme-git",
+        "breeze",
+        "breeze-plus",
+        "darkly-bin",
+        "eza",
+        "fish",
+        "fontconfig",
+        "kitty",
+        "matugen",
+        "otf-space-grotesk",
+        "starship",
+        "ttf-jetbrains-mono-nerd",
+        "ttf-material-symbols-variable-git",
+        "ttf-readex-pro",
+        "ttf-rubik-vf",
+        "ttf-twemoji"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-fonts-themes",
+      "pkgver": "1.0-6",
+      "pkgdesc": "Illogical Impulse Fonts and Theming Dependencies",
+      "url": "",
+      "builddate": "1795533949",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-fonts-themes-1.0-6-any.pkg.tar.zst",
+      "filesize": 15045,
+      "signed": false
+    },
+    {
+      "depends": [
+        "hyprland",
+        "hyprsunset",
+        "wl-clipboard"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-hyprland",
+      "pkgver": "1.0-5",
+      "pkgdesc": "Illogical Impulse Hyprland relatated packages",
+      "url": "",
+      "builddate": "1795533950",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-hyprland-1.0-5-any.pkg.tar.zst",
+      "filesize": 14959,
+      "signed": false
+    },
+    {
+      "depends": [
+        "bluedevil",
+        "gnome-keyring",
+        "networkmanager",
+        "plasma-nm",
+        "polkit-kde-agent",
+        "dolphin",
+        "systemsettings"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-kde",
+      "pkgver": "1.0-3",
+      "pkgdesc": "Illogical Impulse KDE Dependencies",
+      "url": "",
+      "builddate": "1795533952",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-kde-1.0-3-any.pkg.tar.zst",
+      "filesize": 14978,
+      "signed": false
+    },
+    {
+      "depends": [
+        "tinyxml2",
+        "gtkmm3",
+        "gtksourceviewmm",
+        "cairomm"
+      ],
+      "license": [
+        "MIT"
+      ],
+      "pkgname": "illogical-impulse-microtex-git",
+      "pkgver": "r494.0e3707f-4",
+      "pkgdesc": "MicroTeX for illogical-impulse dotfiles.",
+      "url": "https://github.com/end-4/MicroTeX",
+      "builddate": "1795533954",
+      "packager": "Unknown Packager",
+      "size": "3728868",
+      "file": "illogical-impulse-microtex-git-r494.0e3707f-4-x86_64.pkg.tar.zst",
+      "filesize": 1207141,
+      "signed": false
+    },
+    {
+      "depends": [
+        "xdg-desktop-portal",
+        "xdg-desktop-portal-kde",
+        "xdg-desktop-portal-gtk",
+        "xdg-desktop-portal-hyprland"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-portal",
+      "pkgver": "1.0-3",
+      "pkgdesc": "Illogical Impulse XDG Desktop Portals",
+      "url": "",
+      "builddate": "1795533981",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-portal-1.0-3-any.pkg.tar.zst",
+      "filesize": 14973,
+      "signed": false
+    },
+    {
+      "depends": [
+        "clang",
+        "uv",
+        "gtk4",
+        "libadwaita",
+        "libsoup3",
+        "libportal-gtk4",
+        "gobject-introspection"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-python",
+      "pkgver": "1.1-5",
+      "pkgdesc": "Illogical Impulse Python Dependencies",
+      "url": "",
+      "builddate": "1795533983",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-python-1.1-5-any.pkg.tar.zst",
+      "filesize": 14977,
+      "signed": false
+    },
+    {
+      "depends": [
+        "cpptrace",
+        "jemalloc",
+        "mesa",
+        "qt6-declarative",
+        "qt6-base",
+        "qt6-svg",
+        "libdrm",
+        "libpipewire",
+        "libxcb",
+        "wayland",
+        "qt6-5compat",
+        "qt6-avif-image-plugin",
+        "qt6-imageformats",
+        "qt6-multimedia",
+        "qt6-positioning",
+        "qt6-quicktimeline",
+        "qt6-sensors",
+        "qt6-svg",
+        "qt6-tools",
+        "qt6-translations",
+        "qt6-virtualkeyboard",
+        "qt6-wayland",
+        "kirigami",
+        "kdialog",
+        "syntax-highlighting"
+      ],
+      "license": [
+        "LGPL-3.0-only"
+      ],
+      "pkgname": "illogical-impulse-quickshell-git",
+      "pkgver": "0.1.0.r1-8",
+      "pkgdesc": "quickshell-git pinned commit and extra deps for illogical-impulse",
+      "url": "https://git.outfoxxed.me/quickshell/quickshell",
+      "builddate": "1795533985",
+      "packager": "Unknown Packager",
+      "size": "201514172",
+      "file": "illogical-impulse-quickshell-git-0.1.0.r1-8-x86_64.pkg.tar.zst",
+      "filesize": 61642403,
+      "signed": false
+    },
+    {
+      "depends": [
+        "hyprshot",
+        "slurp",
+        "swappy",
+        "tesseract",
+        "tesseract-data-eng",
+        "wf-recorder"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-screencapture",
+      "pkgver": "1.0-2",
+      "pkgdesc": "Illogical Impulse Screenshot and Recording Dependencies",
+      "url": "",
+      "builddate": "1795534117",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-screencapture-1.0-2-any.pkg.tar.zst",
+      "filesize": 14993,
+      "signed": false
+    },
+    {
+      "depends": [
+        "upower",
+        "wtype",
+        "ydotool"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-toolkit",
+      "pkgver": "1.0-3",
+      "pkgdesc": "Illogical Impulse Toolkit Dependencies",
+      "url": "",
+      "builddate": "1795534119",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-toolkit-1.0-3-any.pkg.tar.zst",
+      "filesize": 14959,
+      "signed": false
+    },
+    {
+      "depends": [
+        "fuzzel",
+        "glib2",
+        "imagemagick",
+        "hypridle",
+        "hyprlock",
+        "hyprpicker",
+        "songrec",
+        "translate-shell",
+        "wlogout",
+        "libqalculate"
+      ],
+      "license": [
+        "None"
+      ],
+      "pkgname": "illogical-impulse-widgets",
+      "pkgver": "1.0-7",
+      "pkgdesc": "Illogical Impulse Widget Dependencies",
+      "url": "",
+      "builddate": "1795534121",
+      "packager": "Unknown Packager",
+      "size": "0",
+      "file": "illogical-impulse-widgets-1.0-7-any.pkg.tar.zst",
+      "filesize": 15002,
+      "signed": false
+    },
+    {
+      "depends": [
+        "pilowlava-font-common"
+      ],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "otf-pilowlava",
+      "pkgver": "2-2",
+      "pkgdesc": "Pilowlava OTF font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "110784",
+      "file": "otf-pilowlava-2-2-any.pkg.tar.zst",
+      "filesize": 61608,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "otf-space-grotesk",
+      "pkgver": "2-2",
+      "pkgdesc": "Space Grotesk OTF font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "307221",
+      "file": "otf-space-grotesk-2-2-any.pkg.tar.zst",
+      "filesize": 169856,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "otf-uncut-sans",
+      "pkgver": "2-2",
+      "pkgdesc": "Uncut Sans OTF font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "929064",
+      "file": "otf-uncut-sans-2-2-any.pkg.tar.zst",
+      "filesize": 419560,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "pilowlava-font-common",
+      "pkgver": "2-2",
+      "pkgdesc": "General documentation and license for Pilowlava font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "4586521",
+      "file": "pilowlava-font-common-2-2-any.pkg.tar.zst",
+      "filesize": 4447446,
+      "signed": false
+    },
+    {
+      "depends": [
+        "libavif",
+        "glibc",
+        "gcc-libs",
+        "qt5-base"
+      ],
+      "license": [
+        "BSD-2-Clause"
+      ],
+      "pkgname": "qt5-avif-image-plugin",
+      "pkgver": "0.10.1-1",
+      "pkgdesc": "Qt5 plug-in to allow Qt5 and KDE based applications to read/write AVIF images",
+      "url": "https://github.com/novomesk/qt-avif-image-plugin",
+      "builddate": "1795534202",
+      "packager": "Unknown Packager",
+      "size": "40433",
+      "file": "qt5-avif-image-plugin-0.10.1-1-x86_64.pkg.tar.zst",
+      "filesize": 32130,
+      "signed": false
+    },
+    {
+      "depends": [
+        "libavif",
+        "glibc",
+        "gcc-libs",
+        "qt6-base"
+      ],
+      "license": [
+        "BSD-2-Clause"
+      ],
+      "pkgname": "qt6-avif-image-plugin",
+      "pkgver": "0.10.1-1",
+      "pkgdesc": "Qt6 plug-in to allow Qt6 and KDE 6 based applications to read/write AVIF images",
+      "url": "https://github.com/novomesk/qt-avif-image-plugin",
+      "builddate": "1795534202",
+      "packager": "Unknown Packager",
+      "size": "44470",
+      "file": "qt6-avif-image-plugin-0.10.1-1-x86_64.pkg.tar.zst",
+      "filesize": 33714,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "Apache-2.0"
+      ],
+      "pkgname": "ttf-material-icons-git",
+      "pkgver": "4.0.0.r176.g10ecc147-1",
+      "pkgdesc": "Material Design icons by Google - classic fonts",
+      "url": "https://github.com/google/material-design-icons",
+      "builddate": "1795534184",
+      "packager": "Unknown Packager",
+      "size": "2057964",
+      "file": "ttf-material-icons-git-4.0.0.r176.g10ecc147-1-any.pkg.tar.zst",
+      "filesize": 678754,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "Apache-2.0"
+      ],
+      "pkgname": "ttf-material-symbols-variable-git",
+      "pkgver": "4.0.0.r176.g10ecc147-1",
+      "pkgdesc": "Material Design icons by Google - variable fonts",
+      "url": "https://github.com/google/material-design-icons",
+      "builddate": "1795534184",
+      "packager": "Unknown Packager",
+      "size": "34898544",
+      "file": "ttf-material-symbols-variable-git-4.0.0.r176.g10ecc147-1-any.pkg.tar.zst",
+      "filesize": 15149153,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1-RFN"
+      ],
+      "pkgname": "ttf-readex-pro",
+      "pkgver": "1.204-2",
+      "pkgdesc": "World-script expansion of Lexend font family",
+      "url": "https://github.com/ThomasJockin/readexpro",
+      "builddate": "1795534217",
+      "packager": "Unknown Packager",
+      "size": "788679",
+      "file": "ttf-readex-pro-1.204-2-any.pkg.tar.zst",
+      "filesize": 259884,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1-RFN"
+      ],
+      "pkgname": "ttf-readex-pro-variable",
+      "pkgver": "1.204-2",
+      "pkgdesc": "World-script expansion of Lexend font family",
+      "url": "https://github.com/ThomasJockin/readexpro",
+      "builddate": "1795534217",
+      "packager": "Unknown Packager",
+      "size": "290875",
+      "file": "ttf-readex-pro-variable-1.204-2-any.pkg.tar.zst",
+      "filesize": 168725,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL"
+      ],
+      "pkgname": "ttf-rubik-vf",
+      "pkgver": "2.3.0-3",
+      "pkgdesc": "A sans serif font family with slightly rounded corners: variable font version",
+      "url": "https://github.com/googlefonts/rubik",
+      "builddate": "1795534223",
+      "packager": "Unknown Packager",
+      "size": "720187",
+      "file": "ttf-rubik-vf-2.3.0-3-any.pkg.tar.zst",
+      "filesize": 250451,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "ttf-space-mono",
+      "pkgver": "2-2",
+      "pkgdesc": "Space Mono TTF font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "381180",
+      "file": "ttf-space-mono-2-2-any.pkg.tar.zst",
+      "filesize": 152734,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "ttf-uncut-sans",
+      "pkgver": "2-2",
+      "pkgdesc": "Uncut Sans TTF font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "205964",
+      "file": "ttf-uncut-sans-2-2-any.pkg.tar.zst",
+      "filesize": 115950,
+      "signed": false
+    },
+    {
+      "depends": [
         "bash",
         "pacman",
         "curl",
@@ -42,14 +776,150 @@
         "GPL-3.0-or-later"
       ],
       "pkgname": "vtx",
-      "pkgver": "0.1.0-1",
+      "pkgver": "0.2.0-1",
       "pkgdesc": "The Vitra package manager: [vitra] repo, Arch repos and the AUR in one command",
       "url": "https://github.com/femboyss/vtx",
-      "builddate": "1795532907",
+      "builddate": "1795533922",
       "packager": "Unknown Packager",
-      "size": "80516",
-      "file": "vtx-0.1.0-1-any.pkg.tar.zst",
-      "filesize": 43078,
+      "size": "84695",
+      "file": "vtx-0.2.0-1-any.pkg.tar.zst",
+      "filesize": 44227,
+      "signed": false
+    },
+    {
+      "depends": [
+        "gtk3",
+        "gobject-introspection",
+        "gtk-layer-shell"
+      ],
+      "license": [
+        "MIT"
+      ],
+      "pkgname": "wlogout",
+      "pkgver": "1.2.2-0",
+      "pkgdesc": "Logout menu for wayland",
+      "url": "https://github.com/ArtsyMacaw/wlogout",
+      "builddate": "1795534228",
+      "packager": "Unknown Packager",
+      "size": "122180",
+      "file": "wlogout-1.2.2-0-x86_64.pkg.tar.zst",
+      "filesize": 113446,
+      "signed": false
+    },
+    {
+      "depends": [
+        "pilowlava-font-common"
+      ],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "woff-pilowlava",
+      "pkgver": "2-2",
+      "pkgdesc": "Pilowlava woff web font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "70164",
+      "file": "woff-pilowlava-2-2-any.pkg.tar.zst",
+      "filesize": 81378,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "woff-space-grotesk",
+      "pkgver": "2-2",
+      "pkgdesc": "Space Grotesk woff web font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "198053",
+      "file": "woff-space-grotesk-2-2-any.pkg.tar.zst",
+      "filesize": 191087,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "woff-uncut-sans",
+      "pkgver": "2-2",
+      "pkgdesc": "Uncut Sans woff web font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "529956",
+      "file": "woff-uncut-sans-2-2-any.pkg.tar.zst",
+      "filesize": 495584,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "Apache-2.0"
+      ],
+      "pkgname": "woff2-material-symbols-variable-git",
+      "pkgver": "4.0.0.r176.g10ecc147-1",
+      "pkgdesc": "Material Design icons by Google - variable fonts",
+      "url": "https://github.com/google/material-design-icons",
+      "builddate": "1795534184",
+      "packager": "Unknown Packager",
+      "size": "12945524",
+      "file": "woff2-material-symbols-variable-git-4.0.0.r176.g10ecc147-1-any.pkg.tar.zst",
+      "filesize": 12959946,
+      "signed": false
+    },
+    {
+      "depends": [
+        "pilowlava-font-common"
+      ],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "woff2-pilowlava",
+      "pkgver": "2-2",
+      "pkgdesc": "Pilowlava woff2 web font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "65032",
+      "file": "woff2-pilowlava-2-2-any.pkg.tar.zst",
+      "filesize": 83616,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "woff2-space-grotesk",
+      "pkgver": "2-2",
+      "pkgdesc": "Space Grotesk woff2 web font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "157529",
+      "file": "woff2-space-grotesk-2-2-any.pkg.tar.zst",
+      "filesize": 174152,
+      "signed": false
+    },
+    {
+      "depends": [],
+      "license": [
+        "OFL-1.1"
+      ],
+      "pkgname": "woff2-uncut-sans",
+      "pkgver": "2-2",
+      "pkgdesc": "Uncut Sans woff2 web font.",
+      "url": "https://events.ccc.de/congress/2024/infos/styleguide.html",
+      "builddate": "1795534123",
+      "packager": "Unknown Packager",
+      "size": "560356",
+      "file": "woff2-uncut-sans-2-2-any.pkg.tar.zst",
+      "filesize": 582141,
       "signed": false
     }
   ]
