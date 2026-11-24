@@ -1,6 +1,29 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 0,
-  "packages": []
+  "generated": 1795532913,
+  "packages": [
+    {
+      "depends": [
+        "bash",
+        "pacman",
+        "curl",
+        "jq",
+        "git"
+      ],
+      "license": [
+        "GPL-3.0-or-later"
+      ],
+      "pkgname": "vtx",
+      "pkgver": "0.1.0-1",
+      "pkgdesc": "The Vitra package manager: [vitra] repo, Arch repos and the AUR in one command",
+      "url": "https://github.com/femboyss/vtx",
+      "builddate": "1795532907",
+      "packager": "Unknown Packager",
+      "size": "80516",
+      "file": "vtx-0.1.0-1-any.pkg.tar.zst",
+      "filesize": 43078,
+      "signed": false
+    }
+  ]
 }
