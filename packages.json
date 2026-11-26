@@ -1,7 +1,7 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795552549,
+  "generated": 1795721216,
   "packages": [
     {
       "depends": [],
@@ -782,6 +782,25 @@
     },
     {
       "depends": [
+        "bash",
+        "filesystem"
+      ],
+      "license": [
+        "GPL-3.0-or-later"
+      ],
+      "pkgname": "vitra-branding",
+      "pkgver": "1.0.0-1",
+      "pkgdesc": "Vitra logo, icons, fastfetch logo and os-release branding",
+      "url": "https://github.com/femboyss/vitra-repo",
+      "builddate": "1795721213",
+      "packager": "Unknown Packager",
+      "size": "55009",
+      "file": "vitra-branding-1.0.0-1-any.pkg.tar.zst",
+      "filesize": 54550,
+      "signed": false
+    },
+    {
+      "depends": [
         "python",
         "pyside6",
         "archinstall",
@@ -794,14 +813,14 @@
         "GPL-3.0-or-later"
       ],
       "pkgname": "vitrainstall",
-      "pkgver": "0.1.2-1",
+      "pkgver": "0.2.0-1",
       "pkgdesc": "The graphical Vitra installer (Qt/QML interface, archinstall underneath)",
       "url": "https://github.com/femboyss/vitrainstall",
-      "builddate": "1795541451",
+      "builddate": "1795721210",
       "packager": "Unknown Packager",
-      "size": "137175",
-      "file": "vitrainstall-0.1.2-1-any.pkg.tar.zst",
-      "filesize": 58127,
+      "size": "153863",
+      "file": "vitrainstall-0.2.0-1-any.pkg.tar.zst",
+      "filesize": 71358,
       "signed": false
     },
     {
