@@ -1,7 +1,7 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795721216,
+  "generated": 1795722119,
   "packages": [
     {
       "depends": [],
@@ -813,14 +813,14 @@
         "GPL-3.0-or-later"
       ],
       "pkgname": "vitrainstall",
-      "pkgver": "0.2.0-1",
+      "pkgver": "0.2.1-1",
       "pkgdesc": "The graphical Vitra installer (Qt/QML interface, archinstall underneath)",
       "url": "https://github.com/femboyss/vitrainstall",
-      "builddate": "1795721210",
+      "builddate": "1795722116",
       "packager": "Unknown Packager",
-      "size": "153863",
-      "file": "vitrainstall-0.2.0-1-any.pkg.tar.zst",
-      "filesize": 71358,
+      "size": "156489",
+      "file": "vitrainstall-0.2.1-1-any.pkg.tar.zst",
+      "filesize": 72233,
       "signed": false
     },
     {
