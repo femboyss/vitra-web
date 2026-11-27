@@ -1,7 +1,7 @@
 {
   "repo": "vitra",
   "arch": "x86_64",
-  "generated": 1795724506,
+  "generated": 1795782621,
   "packages": [
     {
       "depends": [],
@@ -176,14 +176,14 @@
         "GPL-3.0-or-later"
       ],
       "pkgname": "glassy-shell",
-      "pkgver": "2.0.r60.g18b510f-1",
+      "pkgver": "2.0.r62.gdb996a6-1",
       "pkgdesc": "Glassy desktop shell for Vitra: Hyprland + Quickshell (illogical-impulse) in the glassy look",
       "url": "https://github.com/femboyss/claudes-glassy",
-      "builddate": "1795724493",
+      "builddate": "1795782609",
       "packager": "Unknown Packager",
-      "size": "3847912",
-      "file": "glassy-shell-2.0.r60.g18b510f-1-any.pkg.tar.zst",
-      "filesize": 945609,
+      "size": "3886429",
+      "file": "glassy-shell-2.0.r62.gdb996a6-1-any.pkg.tar.zst",
+      "filesize": 952600,
       "signed": false
     },
     {
@@ -192,14 +192,14 @@
         "GPL-3.0-or-later"
       ],
       "pkgname": "glassy-wallpapers",
-      "pkgver": "2.0.r60.g18b510f-1",
+      "pkgver": "2.0.r62.gdb996a6-1",
       "pkgdesc": "Wallpapers of the Vitra glassy desktop",
       "url": "https://github.com/femboyss/claudes-glassy",
-      "builddate": "1795724493",
+      "builddate": "1795782609",
       "packager": "Unknown Packager",
       "size": "9860165",
-      "file": "glassy-wallpapers-2.0.r60.g18b510f-1-any.pkg.tar.zst",
-      "filesize": 9542093,
+      "file": "glassy-wallpapers-2.0.r62.gdb996a6-1-any.pkg.tar.zst",
+      "filesize": 9542083,
       "signed": false
     },
     {
